@@ -1,0 +1,25 @@
+<program> ::= GO <stmtList> STOP
+<stmtList> ::= <stmt> | <stmtList><stmt>
+<stmt> ::= <declaration>;|<simpleStmt>;|<structStmt>;
+<declaration> ::= have <identifier> be <type>
+<type> ::= <simpleType>|<composedType>
+<simpleType> ::= boolean | char | integer | string
+<composedType> ::= <type>[<uNumber>] | <type>[<identifier>]
+<simpleStmt> ::= <assignStmt> | <ioStmt>
+<assignStmt> ::= <identifier> = <expression>
+<expression> ::= <expression> + <term> | <expression> - <term> | <term>
+<term> ::= <term> * <factor> | <term> / <factor> | <term> % <factor> | <factor>
+<factor> ::=(<expression>) | <identifier> | <constant>
+<constant>::= <number> | <char> | <string> | <boolean>
+<ioStmt> ::= <readStmt> | <writeStmt>
+<readStmt> ::= read(<identifier>)
+<writeStmt> ::= write(<identifier>) | write(<constant>)
+<structStmt> ::= <ifStmt> | <whileStmt> | <forStmt>
+<ifStmt> ::= assuming (<condition>) then <stmtList> stop-assuming | assuming (<condition>) then <stmtList> otherwise <stmtList> stop-assuming
+<condition> ::= <conditionTerm> | <condition> <conditionOperator> <conditionTerm>
+<conditionTerm> ::= <conditionFactor> | not <conditionFactor> | <conditionFactor> <relativeOperator> <conditionFactor> 
+<conditionFactor> ::= <factor> | (<condition>)
+<conditionOperator> ::= and | or 
+<relativeOperator> ::= > | < | >= | <= | == | <>
+<whileStmt> ::= while (<condition>) do <stmtList> stop-while
+<forStmt> ::= for(<assignStmt>;<condition>;<assignStmt>) do <stmtList> stop-for
