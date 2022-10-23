@@ -1,0 +1,42 @@
+Alphabet:
+a. Upper (A-Z) and lower case letter (a-z) of the English alphabet
+b. Dash character '-'
+c. Underline character '_'
+d. Decimal digits (0-9)
+
+
+Lexic:
+a. Special symbols, representing:
+- operators + - * / % = < > == <= >= <> and or not 
+- separators ( ) [ ] ; , space 
+- reserved words: 
+GO STOP have be read write assuming then stop-assuming otherwise for stop-for integer boolean string char while stop-while true false
+
+b. Identifiers
+- a sequence of letters and digits, such that the first character is a letter; the rule is:
+
+<letter> = A | B | ... | Z | a | b | ... | z
+<digit> = 0 | 1 | ... | 9
+<character> = <letter> | <digit>
+<identifier> = <letter> | <identifier><character>
+
+c. constants
+
+1. integer - rule:
+<nZeroDigit> = 1|2|...|9
+<digit> = <nZeroDigit> | 0
+<nZeroNumber> =  <nZeroDigit> | <nZeroNumber><digit>
+<uNumber> = 0 | <nZeroNumber>
+<sign> = + | -
+<number> = <sign><nZeroNumber> | <uNumber>
+
+2. char - rule:
+<char> = '<character>'
+
+3. string - rule:
+<string> = "<charArray>"
+<charArray> = <character> | <charArray><character>
+
+4. boolean - rule: 
+<boolean> = true | false
+
