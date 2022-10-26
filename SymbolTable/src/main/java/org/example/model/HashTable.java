@@ -19,7 +19,15 @@ public class HashTable<V> {
     }
 
     public V get(Integer key) {
-        return table.get(key % HASH_VALUE).get(key / HASH_VALUE);
+        int tableKey = key % HASH_VALUE;
+        int bucketPosition = key / HASH_VALUE;
+        if (!table.containsKey(tableKey)) {
+            return null;
+        }
+        if (table.get(tableKey).size() >= bucketPosition) {
+            return null;
+        }
+        return table.get(tableKey).get(bucketPosition);
     }
 
     public Integer search(V value) {
