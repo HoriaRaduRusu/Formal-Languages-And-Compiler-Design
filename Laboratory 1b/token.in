@@ -10,9 +10,9 @@
 <=
 >=
 <>
-and
-or
-not
+&&
+||
+!
 
 (
 )
@@ -30,12 +30,12 @@ read
 write
 assuming
 then
-stop-assuming
+stopAssuming
 otherwise
 for
-stop-for
+stopFor
 while
-stop-while
+stopWhile
 do
 integer
 boolean

@@ -7,10 +7,10 @@ d. Decimal digits (0-9)
 
 Lexic:
 a. Special symbols, representing:
-- operators + - * / % = < > == <= >= <> and or not 
+- operators + - * / % = < > == <= >= <> && || ! 
 - separators ( ) [ ] ; , space 
 - reserved words: 
-GO STOP have be read write assuming then stop-assuming otherwise for stop-for integer boolean string char while stop-while true false
+GO STOP have be read write assuming then stopAssuming otherwise for stopFor integer boolean string char while stopWhile true false
 
 b. Identifiers
 - a sequence of letters and digits, such that the first character is a letter; the rule is:
