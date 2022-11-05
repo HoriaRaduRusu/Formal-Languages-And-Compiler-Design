@@ -1,0 +1,7 @@
+Symbol table (stored as a hash table):
+48 - 0
+49 - 1
+341 - sum
+375 - numbers
+105 - i
+110 - n

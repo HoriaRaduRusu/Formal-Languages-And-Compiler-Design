@@ -49,4 +49,15 @@ public class HashTable<V> {
         }
         return sum % HASH_VALUE;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for(Integer key : table.keySet()) {
+            for (int i = 0; i < table.get(key).size(); i++){
+                builder.append(HASH_VALUE * i + key).append(" - ").append(table.get(key).get(i).toString()).append("\n");
+            }
+        }
+        return builder.toString();
+    }
 }

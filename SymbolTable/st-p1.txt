@@ -1,0 +1,5 @@
+Symbol table (stored as a hash table):
+97 - a
+98 - b
+99 - c
+324 - min
