@@ -28,7 +28,7 @@ public class LexicalAnalyzer {
     }
 
     public String analyzeProgram(String programLocation, SymbolTable symbolTable, Pif pif) {
-        int lineCount = 0;
+        int lineCount = 1;
         StringBuilder message = new StringBuilder();
         try (Scanner scanner = new Scanner(new FileReader(programLocation))) {
             while (scanner.hasNextLine()) {
