@@ -1,0 +1,17 @@
+GO
+    have a be integer;
+    have b be integer;
+    have c be integer;
+    have min be integer;
+    read(a);
+    read(b);
+    read(c);
+    min=a;
+    assuming (min > b) then
+        min=b;
+    stopAssuming;
+    assuming (min > c) then
+        min=c;
+    stopAssuming;
+    write(min);
+STOP

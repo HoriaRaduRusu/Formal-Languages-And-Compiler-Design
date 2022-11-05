@@ -19,4 +19,9 @@ public class SymbolTable {
     public Object getValue(Integer key) {
         return hashTable.get(key);
     }
+
+    @Override
+    public String toString() {
+        return "Symbol table (stored as a hash table):\n" + hashTable.toString();
+    }
 }

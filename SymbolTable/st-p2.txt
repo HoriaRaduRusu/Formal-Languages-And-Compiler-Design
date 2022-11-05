@@ -1,0 +1,8 @@
+Symbol table (stored as a hash table):
+48 - 0
+97 - a
+49 - 1
+50 - 2
+51 - 3
+152 - prime
+105 - i

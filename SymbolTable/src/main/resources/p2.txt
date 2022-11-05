@@ -1,0 +1,21 @@
+GO
+    have a be integer;
+    have prime be boolean;
+    have i be integer;
+    read(a);
+    assuming (a == 2) then
+        prime = true;
+    otherwise
+        assuming (a < 1 || a % 2 == 0) then
+            prime = false;
+        otherwise
+            prime = true;
+            for (i = 3; i * i <= a && prime; i = i + 1) do
+                assuming (a % i == 0) then
+                    prime = false;
+                stopAssuming;
+            stopFor;
+        stopAssuming;
+    stopAssuming;
+    write(prime);
+STOP

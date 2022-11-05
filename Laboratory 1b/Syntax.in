@@ -15,11 +15,11 @@
 <readStmt> ::= read(<identifier>)
 <writeStmt> ::= write(<identifier>) | write(<constant>)
 <structStmt> ::= <ifStmt> | <whileStmt> | <forStmt>
-<ifStmt> ::= assuming (<condition>) then <stmtList> stop-assuming | assuming (<condition>) then <stmtList> otherwise <stmtList> stop-assuming
+<ifStmt> ::= assuming (<condition>) then <stmtList> stopAssuming | assuming (<condition>) then <stmtList> otherwise <stmtList> stopAssuming
 <condition> ::= <conditionTerm> | <condition> <conditionOperator> <conditionTerm>
-<conditionTerm> ::= <conditionFactor> | not <conditionFactor> | <conditionFactor> <relativeOperator> <conditionFactor> 
+<conditionTerm> ::= <conditionFactor> | ! <conditionFactor> | <conditionFactor> <relativeOperator> <conditionFactor> 
 <conditionFactor> ::= <factor> | (<condition>)
-<conditionOperator> ::= and | or 
+<conditionOperator> ::= && | || 
 <relativeOperator> ::= > | < | >= | <= | == | <>
-<whileStmt> ::= while (<condition>) do <stmtList> stop-while
-<forStmt> ::= for(<assignStmt>;<condition>;<assignStmt>) do <stmtList> stop-for
+<whileStmt> ::= while (<condition>) do <stmtList> stopWhile
+<forStmt> ::= for(<assignStmt>;<condition>;<assignStmt>) do <stmtList> stopFor
