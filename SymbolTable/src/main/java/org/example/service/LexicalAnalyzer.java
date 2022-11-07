@@ -71,9 +71,9 @@ public class LexicalAnalyzer {
         if (token.matches("^[a-zA-Z][a-zA-Z\\d]*$")) {
             return "id";
         }
-        if (token.matches("^(([+-][1-9]\\d*)|([1-9]\\d*)|0)$") ||
+        if (token.matches("^(([+-]?[1-9]\\d*)|0)$") ||
                 token.matches("^'[a-zA-Z\\d]'$") ||
-                token.matches("^\"[a-zA-Z\\d]\"$")) {
+                token.matches("^\"[a-zA-Z\\d]+\"$")) {
             return "const";
         }
         throw new RuntimeException();
