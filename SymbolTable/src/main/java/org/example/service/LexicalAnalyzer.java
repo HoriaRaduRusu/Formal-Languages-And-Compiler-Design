@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.FiniteAutomaton;
 import org.example.model.Pair;
 import org.example.model.Pif;
 import org.example.model.SymbolTable;
@@ -18,13 +19,17 @@ public class LexicalAnalyzer {
     private final List<String> keywords;
     private final String operatorsRegex;
     private final String separatorsRegex;
+    private final FiniteAutomaton identifierFiniteAutomaton;
+    private final FiniteAutomaton integerConstantFiniteAutomaton;
 
-    public LexicalAnalyzer(List<String> separators, List<String> operators, List<String> keywords) {
+    public LexicalAnalyzer(List<String> separators, List<String> operators, List<String> keywords, FiniteAutomaton identifierFiniteAutomaton, FiniteAutomaton integerConstantFiniteAutomaton) {
         this.separators = separators;
         this.operators = operators;
         this.keywords = keywords;
         this.operatorsRegex = listToRegex(operators);
         this.separatorsRegex = listToRegex(separators);
+        this.identifierFiniteAutomaton = identifierFiniteAutomaton;
+        this.integerConstantFiniteAutomaton = integerConstantFiniteAutomaton;
     }
 
     public String analyzeProgram(String programLocation, SymbolTable symbolTable, Pif pif) {
@@ -68,10 +73,10 @@ public class LexicalAnalyzer {
     }
 
     private String isTokenIdentifierOrConstant(String token) {
-        if (token.matches("^[a-zA-Z][a-zA-Z\\d]*$")) {
+        if (identifierFiniteAutomaton.isSequenceAccepted(token)) {
             return "id";
         }
-        if (token.matches("^(([+-]?[1-9]\\d*)|0)$") ||
+        if (integerConstantFiniteAutomaton.isSequenceAccepted(token) ||
                 token.matches("^'[a-zA-Z\\d]'$") ||
                 token.matches("^\"[a-zA-Z\\d]+\"$")) {
             return "const";
