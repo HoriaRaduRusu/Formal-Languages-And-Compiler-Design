@@ -1,0 +1,62 @@
+P SL S D SS STS ID T ST CT AS IOS EXP TERM FACT CT RSTMT WSTMT IFSTMT FORSTMT WHILESTMT COND CONDFACT CONDTERM CONDOP RELOP
+GO STOP ; have be boolean char integer string = + - * / % ( ) [ ] read write assuming then stopAssuming otherwise ! && || > < >= <= == <> while do stopWhile for stopFor NO CHR STR BOOL UN
+P
+P -> GO SL STOP
+SL -> S
+SL -> SL S
+S -> D
+S -> SS
+S -> STS
+D -> have ID be T
+T -> ST
+T -> CT
+ST -> boolean
+ST -> char
+ST -> integer
+ST -> string
+CT -> T [ UN ]
+CT -> T [ ID ]
+SS -> AS
+SS -> IOS
+AS -> ID = EXP
+EXP -> EXP + TERM
+EXP -> EXP - TERM
+EXP -> TERM
+TERM -> TERM * FACT
+TERM -> TERM / FACT
+TERM -> TERM & FACT
+TERM -> FACT
+FACT -> ( EXP )
+FACT -> ID
+FACT -> CT
+CT -> NO
+CT -> CHR
+CT -> STR
+CT -> BOOL
+IOS -> RSTMT
+IOS -> WSTMT
+RSTMT -> read ( ID )
+WSTMT -> write ( ID )
+WSTMT -> write ( CT )
+SS -> IFSTMT
+SS -> WHILESTMT
+SS -> FORSTMT
+IFSTMT -> assuming ( COND ) then SL stopAssuming
+IFSTMT -> assuming ( COND ) then SL otherwise SL stopAssuming
+COND -> CONDTERM
+COND -> COND CONDOP CONDTERM
+CONDTERM -> CONDFACT
+CONDTERM -> ! CONDFACT
+CONDTERM -> CONDFACT RELOP CONDFACT
+CONDFACT -> FACT
+CONDFACT -> ( COND )
+CONDOP -> &&
+CONDOP -> ||
+RELOP -> >
+RELOP -> <
+RELOP -> >=
+RELOP -> <=
+RELOP -> ==
+RELOP -> <>
+WHILESTMT -> while ( COND ) do SL stopWhile
+FORSTMT -> for ( AS ; COND ; AS ) do SL stopFor
