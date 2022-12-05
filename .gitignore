@@ -2,3 +2,11 @@
 SymbolTable/.idea
 SymbolTable/.gradle
 SymbolTable/build
+FiniteAutomata/FiniteAutomata/.idea/
+FiniteAutomata/FiniteAutomata/build/
+Parser/.idea
+Parser/.gradle
+Parser/build
+FiniteAutomata/FiniteAutomata/.gradle/7.4/executionHistory/executionHistory.bin
+FiniteAutomata/FiniteAutomata/.gradle/7.4/executionHistory/executionHistory.lock
+
