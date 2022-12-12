@@ -57,8 +57,12 @@ public class Grammar {
                 }).collect(Collectors.joining("\n"));
     }
 
+    public List<List<String>> getProductionsForNonTerminal(String nonTerminal) {
+        return new ArrayList<>(productions.getOrDefault(List.of(nonTerminal), List.of()));
+    }
+
     public String getProductionsForNonTerminalForPrinting(String nonTerminal) {
-        List<List<String>> rightSides = productions.getOrDefault(List.of(nonTerminal), List.of());
+        List<List<String>> rightSides = getProductionsForNonTerminal(nonTerminal);
         return rightSides.stream()
                 .map(rightSide -> nonTerminal + " -> " + String.join(" ", rightSide))
                 .collect(Collectors.joining("\n"));
@@ -66,5 +70,13 @@ public class Grammar {
 
     public boolean checkIfCFG() {
         return productions.keySet().stream().allMatch(leftSide -> leftSide.size() == 1);
+    }
+
+    public boolean isNonTerminal(String token) {
+        return nonTerminalSet.contains(token);
+    }
+
+    public String getStartingSymbol() {
+        return startingSymbol;
     }
 }
