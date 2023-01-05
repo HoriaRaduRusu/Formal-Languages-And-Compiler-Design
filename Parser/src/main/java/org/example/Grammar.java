@@ -25,7 +25,7 @@ public class Grammar {
             nonTerminalSet = Arrays.stream(scanner.nextLine().strip().split(" ")).collect(Collectors.toSet());
             terminalSet = Arrays.stream(scanner.nextLine().strip().split(" ")).collect(Collectors.toSet());
             startingSymbol = scanner.nextLine().strip();
-            productions = new HashMap<>();
+            productions = new LinkedHashMap<>();
             while (scanner.hasNextLine()){
                 String production = scanner.nextLine();
                 String[] productionSides = production.split(" -> ");
@@ -78,5 +78,39 @@ public class Grammar {
 
     public String getStartingSymbol() {
         return startingSymbol;
+    }
+
+    public int getProductionNumber(List<String> leftSide, List<String> rightSide) {
+        int productionNumber = 1;
+        for (List<String> leftSideOfProduction: productions.keySet()) {
+            for (List<String> rightSideOfProduction: productions.get(leftSideOfProduction)) {
+                if (leftSideOfProduction.equals(leftSide) && rightSideOfProduction.equals(rightSide)) {
+                    return productionNumber;
+                }
+                productionNumber++;
+            }
+        }
+        throw new RuntimeException("Production not found!");
+    }
+
+    public Map.Entry<List<String>, List<String>> getProductionWithNumber(int productionNumber) {
+        int currentNumber = 1;
+        for (List<String> leftSideOfProduction: productions.keySet()) {
+            for (List<String> rightSideOfProduction: productions.get(leftSideOfProduction)) {
+                if (currentNumber == productionNumber) {
+                    return Map.entry(leftSideOfProduction, rightSideOfProduction);
+                }
+                currentNumber++;
+            }
+        }
+        throw new RuntimeException("Production not found!");
+    }
+
+    public Set<String> getNonTerminalSet() {
+        return nonTerminalSet;
+    }
+
+    public Set<String> getTerminalSet() {
+        return terminalSet;
     }
 }

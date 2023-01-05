@@ -15,6 +15,14 @@ public class Item {
         this.afterDot = afterDot;
     }
 
+    public String getLeftSide() {
+        return leftSide;
+    }
+
+    public List<String> getBeforeDot() {
+        return beforeDot;
+    }
+
     public String getFirstAfterDot() {
         return afterDot.isEmpty() ? "" : afterDot.get(0);
     }
