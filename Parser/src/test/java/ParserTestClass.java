@@ -5,10 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ParserTestClass {
 
@@ -48,7 +45,16 @@ public class ParserTestClass {
 
     @Test
     void testCanonicalCollection() {
-        Set<Set<Item>> canonicalCollection = parser.getCanonicalCollection();
+        Map<String, Set<Item>> canonicalCollection = parser.getCanonicalCollection();
         assert canonicalCollection.size() == 7;
+        System.out.println(canonicalCollection);
+    }
+
+    @Test
+    void testParsingTable() {
+        Map<String, Map<String, String>> table = parser.createTable();
+        for (String state: table.keySet()) {
+            System.out.println(state + ":" + table.get(state));
+        }
     }
 }

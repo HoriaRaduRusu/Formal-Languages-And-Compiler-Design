@@ -1,0 +1,1 @@
+GO have id be integer ; have id be integer ; have id be integer ; have id be integer ; read ( id ) ; read ( id ) ; read ( id ) ; id = id ; assuming ( id > id ) then id = id ; stopAssuming ; assuming ( id > id ) then id = id ; stopAssuming ; write ( id ) ; STOP
